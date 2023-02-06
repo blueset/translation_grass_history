@@ -120,7 +120,8 @@ async def dump_new_messages(app: Client):
             json.dump(messages, f, ensure_ascii=False, indent=2)
         count += 1
 
-    print(f"::set-output name=messagesAdded::{count}")
+    with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+        f.write(f"messagesAdded={count}\n")
 
 async def main():
     async with Client("eana", api_id, api_hash, session_string=session_string) as app:
