@@ -13,6 +13,7 @@ path = "./images/"
 
 api_id = os.environ["API_ID"]
 api_hash = os.environ["API_HASH"]
+session_string = os.environ["SESSION_STRING"]
 subscription_key = os.environ["SUBSCRIPTION_KEY"]
 endpoint = os.environ["ENDPOINT"]
 
@@ -133,7 +134,7 @@ async def dump_new_messages(app: Client):
         f.write(f"messagesAdded={count}\n")
 
 async def main():
-    async with Client("eana", api_id, api_hash) as app:
+    async with Client("eana", api_id, api_hash, session_string=session_string) as app:
         await dump_new_messages(app)
 
 if __name__ == "__main__":
