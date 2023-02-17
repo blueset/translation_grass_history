@@ -23,6 +23,8 @@ def recognize_text(path: str) -> str:
         "Ocp-Apim-Subscription-Key": subscription_key,
         "Content-Type": "application/octet-stream"
     }
+    print("Recognizing text in", path)
+    retries = 0
     with open(path, "rb") as image:
         image_data = image.read()
     
@@ -35,10 +37,13 @@ def recognize_text(path: str) -> str:
         )
 
         if response.status_code > 299:
+            if retries > 10:
+                raise Exception(f"Failed to recognize texts in the image. Exceeded retry times API returned status code: {response.status_code}, {response.content}")
             if response.status_code == 429:
                 duration = int(response.headers["Retry-After"])
                 print("HTTP 429, waiting", duration + 1, "seconds")
                 time.sleep(duration + 1)
+                retries += 1
                 continue
             raise Exception(f"Failed to recognize texts in the image. API returned status code: {response.status_code}, {response.content}")
     
@@ -48,10 +53,13 @@ def recognize_text(path: str) -> str:
     while result["status"] in ("notStarted", "running"):
         response = requests.get(result_url, headers=headers)
         if response.status_code > 299:
+            if retries > 10:
+                raise Exception(f"Failed to recognize texts in the image. Exceeded retry times API returned status code: {response.status_code}, {response.content}")
             if response.status_code == 429:
                 duration = int(response.headers["Retry-After"])
                 print("HTTP 429, waiting", duration + 1, "seconds")
                 time.sleep(duration + 1)
+                retries += 1
                 continue
             raise Exception(f"Failed to recognize texts in the image. API returned status code: {response.status_code}, {response.content}")
         result = response.json()
@@ -110,10 +118,12 @@ async def dump_new_messages(app: Client):
     with open("messages.json", "r") as f:
         messages = json.load(f)
     last_id = messages[-1]["id"]
+    print("Dumping messages until", last_id)
     count = 0
     async for message in app.get_chat_history(channel):
         if message.id <= last_id:
             break
+        print("Dumping", message.id)
         messages.append(await dump_message(app, message))
         messages.sort(key=lambda m: m["id"])
         with open("messages.json", "w") as f:
