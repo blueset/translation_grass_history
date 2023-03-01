@@ -6024,5 +6024,31 @@
     "text": "",
     "media": "1111-AgADaLYxG-SG2Fc.jpg",
     "ocr": "鲜美活蛙现杀\nHigh quality live frog killed now\n新鲜牛肉现穿\nFresh Beef Now Wear\n只用好菜籽油\nUse only high quality rapeseed oil\n好吃"
+  },
+  {
+    "id": 1112,
+    "text": "微软你到底翻译了个甚么东西……",
+    "media": "1112-AgADvLIxG_yfmFc.jpg",
+    "ocr": "Learn / Windows Server /\n:\n将计算机加入域\n项目 · 2023/02/09 · 6个参与者\n△ 反馈\n若要Active Directory 联合身份验证服务(AD FS)正常运行,必须将充当联合服务器的每台计算机加入域。联合服务器代理\n可能已加入域,但这不是一项要求。\n如果Web 服务器仅托管声明感知应用程序,则无需将 Web 服务器加入域。\n若要完成此过程,至少需要是本地计算机上的管理员组或等效组中的成员。查看有关使用适当帐户和本地和域默认组中组\n成员身份的详细信息。\n将计算机加入域\n1. 在桌面上,单击“开始”按钮,键入ASxjJl d>y,然后按 Enter。\n2. 导航到“系统和安全性”,然后单击“系统”。\n3. 在“计算机名、域和工作组设置”下,单击“更改设置”。\n4. 在“计算机名称”选项卡下,单击“更改”。\n5. 在“成员”下,单击“域”,键入希望此计算机加入的域的名称,然后单击“确定”。\n6. 在“计算机名称/域更改“对话框中单击“确定”,然后重启计算机。"
+  },
+  {
+    "id": 1113,
+    "text": "#zh_x_msft #zh_x_msft_ar"
+  },
+  {
+    "id": 1114,
+    "text": "",
+    "media": "1114-AgADwqoxG3zh8Uc.jpg",
+    "ocr": "WALK"
+  },
+  {
+    "id": 1115,
+    "text": "",
+    "media": "1115-AgADw6oxG3zh8Uc.jpg",
+    "ocr": ""
+  },
+  {
+    "id": 1116,
+    "text": "巴尔的摩（"
   }
 ]
