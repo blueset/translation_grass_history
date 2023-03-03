@@ -6050,5 +6050,17 @@
   {
     "id": 1116,
     "text": "巴尔的摩（"
+  },
+  {
+    "id": 1117,
+    "text": "《标 准 隔 断》\nzh-GG\n#xswl",
+    "media": "1117-AgADdrcxG9kYIVc.jpg",
+    "ocr": "概览\nAndroid 设备包括几个分区,它们在启动过程中提供不同的功能。\n标准隔断"
+  },
+  {
+    "id": 1118,
+    "text": "",
+    "media": "1118-AgADd7cxG9kYIVc.jpg",
+    "ocr": "Overview\nAndroid devices include several partitions that serve different functions in the boot process.\nStandard partitions"
   }
 ]
