@@ -45,6 +45,8 @@ def recognize_text(path: str) -> str:
                 time.sleep(duration + 1)
                 retries += 1
                 continue
+            if response.status_code == 400 and b"InvalidImageDimension" in response.content:
+                return "(InvalidImageDimension)"
             raise Exception(f"Failed to recognize texts in the image. API returned status code: {response.status_code}, {response.content}")
     
     result_url = response.headers["Operation-Location"]
