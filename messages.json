@@ -7134,5 +7134,9 @@
     "text": "pretty sure this is not how English works",
     "media": "1307-AgADmbsxG1lR4VY.jpg",
     "ocr": "06:29\n非饮用水\nWater Unfit for Drinking\n手动出水\nManual make water out\n洗手液\nSoap Dispenser\nPlanar"
+  },
+  {
+    "id": 1308,
+    "text": "https://docs.aws.amazon.com/zh_cn/mediaconvert/latest/ug/gop-structure.html\n非常好共和党 爱来自亚马逊\nAmazon\n共和党结构设置 - MediaConvert\n了解如何使用针对视频质量自动优化的编码设置创建 AWS Elemental MediaConvert 任务。"
   }
 ]
