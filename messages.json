@@ -7190,5 +7190,27 @@
   {
     "id": 1318,
     "text": "它写的每个国家的名字都是用那个国家的语言写的，比如“ZhongGuo“"
+  },
+  {
+    "id": 1319,
+    "text": "弗拉特帕克（Flatpak）",
+    "media": "1319-AgADVbkxG8RveVc.jpg",
+    "ocr": "尝试:\nroot # emerge - - ask - - oneshot systemd-utils\n弗拉特帕克\n安装 Steam 的一个非常简单、快速和干净的方法(例如,不需要编译32位依赖项)是使用 Flatpak 软件包 com.valvesoftware.Steam\n的 udev规则):\nroot # emerge - - ask sys-apps/flatpak games-util/game-device-udev-rules\nuser $ flatpak install flathub com.valvesoftware.Steam\nuser $ flatpak run com. valvesoftware.Steam\nSteam 将自行更新并将其文件安装在~/.var/app/com.valvesoftware.Steam 目录中。"
+  },
+  {
+    "id": 1320,
+    "text": "",
+    "media": "1320-AgADvrgxGzHVeVc.jpg",
+    "ocr": "亚搏体育appGitlab OAuth\n脚本服务器可以通过托管或云的 Gitlab 服务器对用户进行身份验证。如何获取 client_id 和 Secret 可以在\nhttps://docs.gitlab.com/ee/integration/oauth_provider.html找到。脚本服务器需要 read_user 范围或者 api 如果您需要组支\n持。\nallowed_users Gitlab 组可以在和中使用 admin_users。可以使用完整路径(@some/nested/group)来使用嵌套组\n选项:"
+  },
+  {
+    "id": 1321,
+    "text": "万象客车→永珍客车",
+    "media": "1321-AgADVbsxG1B-cVc.jpg",
+    "ocr": "C\n0 8\nhttps://buspedia.top/region/13\n口-士档案站\nBUSPEDIA.top\n申龍客車\n客車製造商\n智慧網聯汽車企業\n?\n申沃客車\n客車製造商\n永珍客車\n?\n客車製造商"
+  },
+  {
+    "id": 1322,
+    "text": "该网站强行对系统语言为繁体中文的用户开启简繁转换，并将上海万象客车的万象当成地名翻译成永珍（台湾对<i>Vieng Chan）的翻译</i>"
   }
 ]
