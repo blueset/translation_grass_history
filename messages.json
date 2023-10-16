@@ -7638,5 +7638,17 @@
     "text": "@TechCiel 投稿，开关",
     "media": "1401-AgADybYxG07-UVU.jpg",
     "ocr": "产品介绍\n=\nPort details\nMIKEOTIK OSJONATHAN\n2\n-2.5G Eperter\n4\n我们的目标是为您提供超越竞争对手的工具,将八个2.5千兆以太网端口和两个10千兆SFP+\n端口组合在一个紧凑、强大的封装中!此外,这些SFP+机架支持多种数据速率:\n1G、2.5G和10G。因此,如果需要,您可以将此开关用作10x2.5G开关\n经典的MikroTik灵活性!"
+  },
+  {
+    "id": 1402,
+    "text": "",
+    "media": "1402-AgADf7gxG1v-YFU.jpg",
+    "ocr": "Select Country Or Region\nO Search country/region name\nJ\nCanada"
+  },
+  {
+    "id": 1403,
+    "text": "好家伙，哪儿来的美国人",
+    "media": "1403-AgADa7gxG8fMYFU.jpg",
+    "ocr": "控制器发送码型要求/Controller Transmit Code type requirements\n参数\nParameter\n码元周期\nCode period\n符号\nSymbol\nTDATA\n最小值\nMIN.\n典型值\nTyp.\n最大值\nMax\n1.2\n1.25\n0 码高电平时间\nZero Yard high-level time\n0 码低电平时间\nZero Yard low level time\nTOH\nTOL\n0.25\n0.47\n单位\nUnits\nus\nus\n1\nus\n1 码高电平时间\nOne Yard high level time\nT1H\n0.58\n0.85\n1\nus\n1 码低电平时\nOne Yard low level time\nT1L\n0.4\nus\nReset 码低电平时间\nReset Code Low level time\nTres\n80\nus\n注:控制器发送数据“0”码高电平时间必须小于0.47us;数据“1”码高电平时间必须大于0.58us。\nNote: Controller Must Send Data &quot ; 0&quot; Code High Level Time is less than 0. 47 US; data &quot ; 1&quot; Code high level time is\nmore than 0. 58 us."
   }
 ]
