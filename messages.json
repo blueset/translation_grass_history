@@ -7650,5 +7650,17 @@
     "text": "好家伙，哪儿来的美国人",
     "media": "1403-AgADa7gxG8fMYFU.jpg",
     "ocr": "控制器发送码型要求/Controller Transmit Code type requirements\n参数\nParameter\n码元周期\nCode period\n符号\nSymbol\nTDATA\n最小值\nMIN.\n典型值\nTyp.\n最大值\nMax\n1.2\n1.25\n0 码高电平时间\nZero Yard high-level time\n0 码低电平时间\nZero Yard low level time\nTOH\nTOL\n0.25\n0.47\n单位\nUnits\nus\nus\n1\nus\n1 码高电平时间\nOne Yard high level time\nT1H\n0.58\n0.85\n1\nus\n1 码低电平时\nOne Yard low level time\nT1L\n0.4\nus\nReset 码低电平时间\nReset Code Low level time\nTres\n80\nus\n注:控制器发送数据“0”码高电平时间必须小于0.47us;数据“1”码高电平时间必须大于0.58us。\nNote: Controller Must Send Data &quot ; 0&quot; Code High Level Time is less than 0. 47 US; data &quot ; 1&quot; Code high level time is\nmore than 0. 58 us."
+  },
+  {
+    "id": 1404,
+    "text": "「最糟糕的」",
+    "media": "1404-AgADZLoxG92jeVU.jpg",
+    "ocr": "12:20\n添加 TIDAL 到 Plex\nTIDAL\nTIDAL + Plex 你耳边的音乐\nPP\n6000 万首曲目\n绝对最大,最糟糕的高清曲目目录\nHİFİ\n您可以找到的最好最好的声音\n个人音乐整合\n混合 TIDAL 串流和您的个人音乐库中的即兴曲目\n音乐视频\n在所有屏幕上观看喜爱的艺术家亲临现场\nPP\n艺术家编组的播放列表\n以合作过的曲目来归类艺术家\n在我们的网站上找到更多"
+  },
+  {
+    "id": 1405,
+    "text": "",
+    "media": "1405-AgAD0bgxG7bFgFU.jpg",
+    "ocr": "18:39 1\nAdd TIDAL to Plex\nTIDAL\nTIDAL + Plex Music to your ears\ndd\n60 Million Tracks\nThe absolute biggest and baddest catalog of hi-\ndef tracks\nHİFİ\nThe very, very best sound you can find\nPersonal Music Integration\nD\nMix streaming tracks from TIDAL with your own\npersonal library of jams\nMusic Videos\nWatch your favorite artists' visions come to life\non all your screens\nIPP\nArtist Curated Playlists\nChannel those artists with tracklists they\nput together\nFind out more at our website"
   }
 ]
