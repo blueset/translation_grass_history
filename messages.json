@@ -8710,5 +8710,17 @@
     "text": "《论文》",
     "media": "1597-AgADgroxG7t1QVY.jpg",
     "ocr": "食事中\nHaving meal\n식사를하고있다.\n吃饭\nお帰りの際はこの紙を裏面にして下さい。\nPlease turn this paper over when you finish eating.\n식사를 마치면이 종이를 넘기십시오.\n吃完後請把這篇論文翻過來。"
+  },
+  {
+    "id": 1598,
+    "text": "",
+    "media": "1598-AgADfLgxG--cQFY.jpg",
+    "ocr": "电梯使用\n严禁扒门\n严禁靠门\nStrictly prohibit the door to pick up the door\nIt is strictly prohibited by the door\n火警地震时严禁乘坐电梯\nIt is forbidden to take the\nelevator during the fire.\n禁止乱动按钮\nDisable the button\n看好儿童\n禁止吸烟\nTake Care Your Children\nNo Smoking\n注意事项\n请勿在厅门处停留\n禁止打闹蹦跳\nDo not stop at the hall door\nIt's forbidden to make any noise\n禁止拍打\nBan pat\n严禁超载\nIt is forbidden to overload\n--- 1\nO\nO\nO\nO\n轻按选层按钮\n禁止使用肢体或物品挡门\nPress The Button Lightiy\nDo not use body or object\n2. 5.20"
+  },
+  {
+    "id": 1599,
+    "text": "",
+    "media": "1599-AgAD6r0xG8WcSVY.jpg",
+    "ocr": "Perfare / Zygisk-1I2CppDumper\nCode\nIssues 32\n8 Pull requests 11\nActions\nProjects\nSecurity W Insights\nUpdate build.yml #169\n17 Open\n877916595 wants to merge 1 commit into Perfare: master from 877916595: patch-1\nConversation\n3\n-O- Commits\n1\nChecks\n0\nFiles changed\nQ Type [7] to search\n+ ¥\n< > Code\n1\n+26 -26\n§1 Open\nUpdate build.yml #169\nChanges from all commits\nFile filter\nConversations\nV 52 .\nJump to y\n0 / 1 files viewed\nReview in codespace\nReview changes\n.github/workflows/build.yml[\n<>\n2\non:\n3\nworkflow_dispatch:\n4\n1\ninputs:\n5\npackage_name:\n6\ndescription: \"Package name of the game:\n7\nrequired: true\n8\n9\njobs :\n10\nbuild:\n11\nruns-on:\nubuntu-latest\n12\nsteps:\n13\nuses: actions/checkout@v3\n14\nuses: actions/setup-java@v3\n15\nwith:\n16\ndistribution: temurin\n17\njava-version: 11\n18\ncache: gradle\n19\nrun :\n20\nchmod +X\n./gradlew\n21\nsed -i 's/moduleDescription = \"/moduleDescription = \"(${{ github.event. inputs. package_name }}) /g'\nmodule.gradle\n22\nsed -i \"s/com.game.packagename/${{ github.event.inputs.package_name }}/g\" module/src/main/cpp/game.h\n23\n/gradlew :module : assembleRelease\n24\n-\nuses: actions/upload-artifact@v3\n25\nwith:\n26\nname: zygisk-il2cppdumper\n27\npath: out/magisk_module_release/\nViewed\n...\n2\n+ 在 ...... 之上:\n3\n+ workflow dispatch:\n4\n+ 输入:\n5\n+\npackage_name:\n6\n描述:\"com.tencent.tmgp.pubgmhd:\n7\n必需的:正确\n8\n9\n+\n工作:\n10\n+ 建立:\n11\n+\nrun-on:ubuntu-最新\n12\n+ 步骤:\n13\n+\nuses:操作/签出@v3\n14\n+\nuses:操作/设置-java@v3\n15\n+\n和 ..... 一起:\n16\n+ 分布:temurin\n17\n+\njava版:11\n18\n+ 缓存:Gradle\n19\n+\n跑:1\n20\n+ chmod+x./gradlew\n21\n+\nSED-i[[]/moduleDescription=\"/moduleDescription=\"(${{github. event. inputs.package_name}})/g'module.gradle\n22\n+\nSED-i\"s/com.game.packagename/${{github. event. inputs.package_name}}/g\"}{/src/main/cpp/Game.h\n23\n+\n·/gradlew: 模块: assemblyRelease\n24\n+\nuses:操作/上载工件@v3\n25\n和 ...... →起:\n26\n+\n姓名:zygisk-il2cppdumper\n27\n+ 路径:out/magisk_module_release/"
   }
 ]
