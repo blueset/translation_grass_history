@@ -9066,5 +9066,27 @@
     "text": "要健谈。\nhttps://git-scm.com/docs/git-fsck/zh_HANS-CN#git-fsck---verbose",
     "media": "1659-AgADQ7sxG7VUQFc.jpg",
     "ocr": "- - verbose\n要健谈。"
+  },
+  {
+    "id": 1660,
+    "text": "音译在日文里也许能算是一种翻译（",
+    "media": "1660-AgADbqsxG8VYYEc.jpg",
+    "ocr": "□\n低温长时间焙烤\n多层包酥工艺,\nシージェンホーンカオ\nディー ウエンチャーン(ジャーン)\nヨウピーバオ スウゴーンイー,\n蛋黄酥\nダンポワーンスウ\n1024/01/21\n小红书\n小红书号:852608491"
+  },
+  {
+    "id": 1661,
+    "text": "ヨウ ピー バオ スゥ ゴーン イー,\nディー ウエン チャーン (ジャーン) シー ジエン ホーン カオ\n\n油皮(?)包酥工艺，\n低温 cháng (zhǎng) 时间烘烤"
+  },
+  {
+    "id": 1662,
+    "text": "smjb 乐死我了 真没绷住",
+    "media": "1662-AgADorsxGyYFYFc.jpg",
+    "ocr": "Missing Return Values 缺少返回值\nSome tokens do not return a bool (e.g. USDT\nBNB\nOMG ) on ERC20 methods. see here for a comprehensive (if\nsomewhat outdated) list.\n某些代币在 ERC20 方法上不会返回 bool (例如\nUSDT\n列表。\nBNB\nOMG\n)。请参阅此处查看完整的(如果有些过时)\nSome tokens (e.g. BNB ) may return a bool for some methods, but fail to do so for others. This resulted in stuck\nBNB\ntokens in Uniswap v1 (details).\n某些标记(例如\nBNB\n)可能会为某些方法返回\nbool\n但对于其他方法则无法返回。这导致 Uniswap v1 中的\n代币卡住(详情)。\nBNB\nSome particularly pathological tokens (e.g. Tether Gold) declare a bool return, but then return\nfalse even when the\ntransfer was successful (code).\n一些特别病态的代币(例如 Tether Gold)声明 bool 返回,但即使转移成功(代码),也会返回\nfalse"
+  },
+  {
+    "id": 1663,
+    "text": "key (按键/密钥)",
+    "media": "1663-AgAD9KsxG7F7cUc.jpg",
+    "ocr": "虚拟机连接\n×\n×\n无法将密钥发送到虚拟机。\n无法键入文本,因为它包含过多的字符。\n关闭(C)"
   }
 ]
