@@ -9270,5 +9270,35 @@
     "text": "#投稿",
     "media": "1695-AgADl60xG0h0EUQ.jpg",
     "ocr": "气护脾!全场5\n折起\ntecting the Spleen in Spring!5 fold off for the entire venue\n收银台\nCashier\nC 中药牛片\n宣康药业:全心全意为您服务\nSZ宜康药业区\nRX\n地方市\n舒筋活血用药\nRY\nRX 处方药\n炸物質用药\n中药配济区\nLan\narerares\n春夏\n健康行动\n순환日 第8.5折优惠\n健康行动\n注 入\n想防 范\n台內辦過其"
+  },
+  {
+    "id": 1696,
+    "text": "书 book\n亦 also\n烧 burn\n仙 immo(rtal)\n草",
+    "media": "1696-AgADXq4xGwKREUQ.jpg",
+    "ocr": "00:13\n60\nV\nTransactions\nQ\nPending\nDiDİ\nMerchandise\nBooks also burn immo\nMerchandise\nUniqlo\nMerchandise\nDiDİ\nMerchandise\nCOTTI COFFEE\nMerchandise\nScan the QR code to\nMerchandise\n$1.28 >\n$4.02 >\n$27.60 >\n$1.46 >\n$2.75 >\nti\n小红书号:5569780974"
+  },
+  {
+    "id": 1697,
+    "text": "",
+    "media": "1697-AgAD9LoxG-haGVQ.jpg",
+    "ocr": "用户评分:\n外观:\n质量:\n特征:\n平均:\n没有费率\n没有费率\n没有费率\n没有费率"
+  },
+  {
+    "id": 1698,
+    "text": "",
+    "media": "1698-AgADLMExG7ZRGVQ.jpg",
+    "ocr": "genuine food\nCKEN MENU\nNEW\nmenu\nNEW\nmenu\nCHICKEN\nBONELESS GIMME BASAK CHICKEN\n₩ 19,900\n纯肉香脆紫菜味\n₩ 22,900\n脆的,Gimme脆脆的!\n都熟悉的紫菜的甜咸香脆和\n菜的酥脆与炸鸡相遇,打造韩式炸鸡。\n100%纯腿肉,新的韩式炸鸡!\n韩国人都熟悉的紫菜的甜咸香脆和\n炸紫菜的酥脆与炸鸡相遇,打造韩式炸鸡。\nREST\nmenu\nBEST\nBONELESS CORN-SO AMAZING CH KEN\nMAZING CHICKEN\n玉米无骨鸡腿肉\n22,900\n₩ 19,900\n在无骨鸡腿肉撒上本店玉米味调味粉 再配上\n味粉,再配上烤\n烤玉米和脆玉米。\nNEW\nmenu\nGIMME BASAK WINGS COMBO\n香脆紫菜味鸡翅套餐\n22,900\n100%韩国产鸡翅套餐,新的韩式。\n韩国人都熟悉的紫菜的甜咸香脆和\n炸紫菜的酥脆与炸鸡相遇,打造韩式炸鸡。\nBEST\nCORN-SO AMAZING\nINGS COMBO\n₩22,900\n微软雅黑\n撒上本店玉米味调\n在烤炸鸡翅(翅中和翅\n味粉,再配上烤玉米和\n古玉米。\n小红书号:948142449\n小红书\nThe Special experience. The taste of genuine food\nPURADAK CHICKEN MEN\nBEST\nMAD GARLIC CHICKEN\nPABULRO\n疯狂\n鸡鸡\n19.900\n拌入超美\n香酱汁儿和蒜末的烤炸"
+  },
+  {
+    "id": 1699,
+    "text": "#头搞 \nhttps://t.me/FanKetchup/1340\nTelegram\n帆室邻\npornhub是不是也被降本增效了呀\n几年前连片名都有地道的本地化翻译\n现在一上来就翻译bug",
+    "media": "1699-AgADyrsxG1MuEVQ.jpg",
+    "ocr": "Porn hub\n年龄验证\n该网站包含有年龄限制的内容,包括\n裸体和露骨色情素材的内容。登录即\n表示您确认您已年满 18岁,或在您访\n问本网站时所在的司法管辖区已是成\n年人。\n我年满 18 岁 - 输入\n我未满 18 - 退出"
+  },
+  {
+    "id": 1700,
+    "text": "火车（train）",
+    "media": "1700-AgADVL4xG5PvGFQ.jpg",
+    "ocr": "08:08\nPython\nQ\nresults = model('https://ultralytics.com/images/b\n# Export the model to ONNX format\nsuccess = model.export(format='onnx\" )\n火车\n训练模式用于在自定义数据集上训练YOLOv8 模\n型。在该模式下,模型使用指定的数据集和超参数\n进行训练。训练过程包括优化模型参数,使其能够\n准确预测图像中物体的类别和位置。\n火车\n来自预培训(推荐)\n从零开始\nfrom ultralytics import YOLO\n简历\nmodel = YOLO('yolov8n.pt' ) # pass any model type\nresults = model. train(epochs=5)\n列车示例\n瓦尔\nVal 模式用于在YOLOv8 模型训练完成后对其进行\n验证。在该模式下,模型在验证集上进行评估, 以\n@ docs.ultralytics.com"
   }
 ]
