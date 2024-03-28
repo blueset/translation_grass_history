@@ -9300,5 +9300,11 @@
     "text": "火车（train）",
     "media": "1700-AgADVL4xG5PvGFQ.jpg",
     "ocr": "08:08\nPython\nQ\nresults = model('https://ultralytics.com/images/b\n# Export the model to ONNX format\nsuccess = model.export(format='onnx\" )\n火车\n训练模式用于在自定义数据集上训练YOLOv8 模\n型。在该模式下,模型使用指定的数据集和超参数\n进行训练。训练过程包括优化模型参数,使其能够\n准确预测图像中物体的类别和位置。\n火车\n来自预培训(推荐)\n从零开始\nfrom ultralytics import YOLO\n简历\nmodel = YOLO('yolov8n.pt' ) # pass any model type\nresults = model. train(epochs=5)\n列车示例\n瓦尔\nVal 模式用于在YOLOv8 模型训练完成后对其进行\n验证。在该模式下,模型在验证集上进行评估, 以\n@ docs.ultralytics.com"
+  },
+  {
+    "id": 1701,
+    "text": "<i>via</i> <a href=\"https://t.me/lilalam005\">Lila Lam</a>",
+    "media": "1701-AgAD5r0xG4Z1IFQ.jpg",
+    "ocr": "2:14\n.Ill 4G 44\nufjapan.com.tw\n'F\nUF JAPAN\nf\n日本留學中心\n出生年月日*\n年/月/日\n您的年輕人\n希望入學月份(可復選)\n1月\n√\n請選擇\n未學過\n五十音\nN5\nN4\n◇\nN3\n氮氣\nN1\n◇\n不確定\nッ"
   }
 ]
