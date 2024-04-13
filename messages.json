@@ -9428,5 +9428,11 @@
     "text": "",
     "media": "1722-AgADGMAxG95BsFA.jpg",
     "ocr": "潮流前线\nCOULD NOT CONNECT TO TRANSLATOR SERVICE\ndo\n时尚烫染造型会所\nModelling the club\nTEL: 8688777-8686966"
+  },
+  {
+    "id": 1723,
+    "text": "charge baby 充电宝",
+    "media": "1723-AgADu74xG36FyVA.jpg",
+    "ocr": "TS TypeConstant.ts > [] smallDeviceTyp\n51\nconst smallDeviceTypes =\n52\n=\ncharge_baby\">,\n53\n\"android_phone\",\n54\n\"android_pad\"\n55\n56\n57\nconst usefulToolTypes = ["
   }
 ]
