@@ -9664,5 +9664,41 @@
   {
     "id": 1766,
     "text": "“Every man dies, not every man really lives” - 勇敢的心, 1995"
+  },
+  {
+    "id": 1767,
+    "text": "<i>via</i> 匿名",
+    "media": "1767-AgADIbwxGxoTMFU.jpg",
+    "ocr": "Navigating the Journ\nJAPAN\nAWAJI\nLOCATION\nNavigating the Journey to Awaji Island\nto Awaji\n---\n...\n...\nouest\nKYOTO\nAbout 3 hours\n......\nKOBE\n-----\nSannomiya\n....\nOSAKA\nアクセス/ACCESS/使用權/使用社\nLameda\n. ..\n現在地\ncurrent location\nNARA\nAbout 3 hours\n-------\n--\nNavigating the Journey to Awaji Island\nonthe sumtyto Awal\nNavigating the Journey to Awaji Island\n-\n小红书号:6907731749"
+  },
+  {
+    "id": 1768,
+    "text": "",
+    "media": "1768-AgADILwxGxoTMFU.jpg",
+    "ocr": "K京京\nPO都都\n神戸\nKOBE\n斗比\n科比\n三ノ宮\nSannomiya\n三星\n梅 田\nUmeda\n梅田\n梅田\n大◎大大\n現在地\ncurrent location\n當煎位置\n当前位置\n約3時間\n4\n我的独处充电法 5.6万人参与\n2/2\n去挑战\n关西国际机场低级翻译错误\n神户的英语拼写是KOBE,真好也是湖人传奇球员科比的\n名字。但是这低级错误出现在机场,我真的绷不住了\n#大阪 #大阪旅行 #神户 #科比 #关西机场 #神\n户旅行 #科比布莱恩特"
+  },
+  {
+    "id": 1769,
+    "text": "",
+    "media": "1769-AgADVLwxG6H5SVU.jpg",
+    "ocr": "州\n臺北(TPE)\n已飛行距離\n濟州\n0 英裹 |0 公裹\n64\n南\n地麵速度\n北\n0 mph | 0 kph\n峴港\n111\n碧瑶市\n伊円"
+  },
+  {
+    "id": 1770,
+    "text": "报警了",
+    "media": "1770-AgADWbwxGyFFSFU.jpg",
+    "ocr": "#インクルード <アイオーストリーム>\nユージング ネームスペース エスティーディー;\nブール イズイーブン(イント ナンバー) {\nイフ (ナンバー % 2 == 0) {\nリターン トゥルー;\nリターン フォルス;\nイント メイン() {\nイント ナンバー·\nシーアウト << \"エンター ア ナンバー: \";\nラーイン >> ナンバー;\nシーアウト << イズィーブン(ナンバー) << エンドエル;\nリターン 0;"
+  },
+  {
+    "id": 1771,
+    "text": "非常差！\nhttps://developer.chrome.com/docs/android/custom-tabs",
+    "media": "1771-AgAD_7sxG8hbUVU.jpg",
+    "ocr": "使用日本人你立贝,心的 Web内合付公仕又付用厂三匹则见的任何但未引手加我。月份 API或网络丁口切能在此均\n提供,并在您的自定义标签页中提供。用户的浏览会话、已保存的密码、付款方式和地址都会显示给用户,并如常显示一\n样。\n我可以在自定义标签页中自定义哪些内容?\n非常差!通过自定义标签页,您可以精细控制许多浏览器 Chrome 和用户体验。在您的应用中,使用 Intent 启动自定义标\n签页。调用此 intent 时,您可以向 CustomTabIntent 添加一些属性,以获得所需的确切体验。此处列出了您可以添加的一\n些自定义设置。\n自定义进入和退出动画,以匹配应用的其余部分"
+  },
+  {
+    "id": 1772,
+    "text": "",
+    "media": "1772-AgAEvDEbyFtRVQ.jpg",
+    "ocr": "Any API or web platform feature is available there, and will be available in your Custom Tab. Their browsing session,\nsaved passwords, payment methods, and addresses will all show up just like they are accustomed to already.\nWhat can I customize in a Custom Tab?\nQuite a bit! Custom Tabs give you fine grained control over a lot of the browser chrome and user experience. Within\nyour app, you launch a Custom Tab using an Intent. When this Intent is called, you can add a number of attributes to the\nCustomTabIntent to get the exact experience you want. Some customizations that you can add are listed here.\nCustom entrance and exit animations to match the rest of your app"
   }
 ]
