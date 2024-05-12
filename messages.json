@@ -9800,5 +9800,23 @@
     "text": "ENCRYPTED",
     "media": "1789-AgAD46sxG-Gp6EU.jpg",
     "ocr": "加密优质帐纱\n更柔滑\n唯珍坊\n底部加长帐纱\n无死角\n优学加密蚊帐\nEXCELLENT STUDENTS ENCRYPTED MOSQUITO NETS\n防尘顶设计 · 加密网纱 · 帐身加高达170cm · 柔软透气\n掩门宽更防蚊 · 适用于80-90公分宽的学生床/上下铺\n防尘加密 无蚊夏日\n交叉重叠帐门\n更防蚊\n贴心绑带设计\n拆装方便"
+  },
+  {
+    "id": 1790,
+    "text": "<a href=\"https://www.juniper.net/documentation/cn/zh/software/junos/security-services/topics/topic-map/ipv6-neighbor-discovery-securing.html\">juniper：配置自动爸爸</a>",
+    "media": "1790-AgADtLsxG7gJ8VU.jpg",
+    "ocr": "配置自动爸爸\n如果客户端上的 DAD 禁用,或者 DAD 数据包因\n流量拥塞而丢弃,SLAAC 侦听将代表客户端执行自\n动DAD。客户端生成的地址处于试探性状态,直至\nDAD 流程完成。\nAuto-DAD 发送邻接方请求消息,并将客户端生成\n的地址作为目标,并等待邻居通告作为回应。如果\n有响应,则地址是重复的,无法分配给客户端。如\n果没有响应,则地址将得到确认。\n默认情况下,自动-DAD 等待响应的时间为1秒,个\n无需重述。您可以配置重述的数量和传输之间的间\n隔长度。\n:\n大小子\n· juniper.net\n×"
+  },
+  {
+    "id": 1791,
+    "text": "fret board",
+    "media": "1791-AgAD2bsxGwh2-FU.jpg",
+    "ocr": "手指需要把绳子推到烦恼板的法向力上\nforce of the fretboard which is"
+  },
+  {
+    "id": 1792,
+    "text": "",
+    "media": "1792-AgAD-LsxG3FF-VU.jpg",
+    "ocr": "188\n字符串的角度的大小\nit the size of the angle that the string"
   }
 ]
