@@ -10654,5 +10654,23 @@
     "text": "src: https://zh.wikipedia.org/wiki/PCI_Express\n原文：acknowledgement protocol",
     "media": "1939-AgADBscxG5nL0Vc.jpg",
     "ocr": "数据链路层\n[编辑]\n数据链路层采用按序的交换层信息包(Transaction Layer Packets,TLPs),是由交换层生成,按32位循环冗余校验码(CRC,本文中用\nLCRC) 进行数据保护,采用著名的协议(Ack and Nak signaling)的信息包。TLPs能通过LCRC校验和连续性校验的称为Ack(命令正\n确应答);没有通过校验的称为Nak(没有应答)。没有应答的TLPs或者等待超时的TLPs会被重新传输。这些内容存储在数据链路层的\n缓存内。这样可以确保TLPs的传输不受电子噪音干扰。PCle对于ACK有所规范,在收到TLP数据包之后,在一定时间内必须回应ACK,\n也就是ACK延迟(ACK Latency)的等待时间。因应ACK/NAK流程的需要,必须实现出重新播送缓冲器(Replay Buffer)。"
+  },
+  {
+    "id": 1940,
+    "text": "S W E E P   C O D E",
+    "media": "1940-AgADt70xG7nZAAFU.jpg",
+    "ocr": "正对扫描\nSWEEP CODE"
+  },
+  {
+    "id": 1941,
+    "text": "",
+    "media": "1941-AgADBMQxG1-YAVQ.jpg",
+    "ocr": "男厕所\nİ Momen\n公共厕所\nComfort station\n开放时间:24小时\n管理人员\n联系方式\n监督人员\n联系方式\n祠堂巷\n26-1\n河市镇序桥村公丽保洁管理制度\n女厕所\nWen"
+  },
+  {
+    "id": 1942,
+    "text": "不要停，一直骑（自行车/电动车）！",
+    "media": "1942-AgADG70xG706AAFU.jpg",
+    "ocr": "温馨提示\nNOTICE\n禁止停车\nNO Stopping\n广州有轨电车\nGuangzhou Tram"
   }
 ]
