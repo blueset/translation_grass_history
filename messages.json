@@ -11078,5 +11078,17 @@
     "text": "非常好病人 使我气候旋转",
     "media": "2019-AgADKK8xG5N84UU.jpg",
     "ocr": "全部\n管理 11\n气候 8\n学生 7\n僱員 5\n建造 5\n信息 10\n团队 6\n病人 5\nQ\n= 排序\n前台 9\n会话\n5\n病人,在5条评价中被提及\nK\nKim Lowney\n2 条评价\n2个月前\n…\nPlace is convenient to Syracuse university. Clean and the\nstaff are wonderful !! They are patient and answer all your\nquestions !!\n查看译文(语言:中文)"
+  },
+  {
+    "id": 2020,
+    "text": "https://peps.python.org/pep-0594/\nPython Enhancement Proposals (PEPs)\nPEP 594 – Removing dead batteries from the standard library | peps.python.org\nThis PEP proposed a list of standard library modules to be removed from the standard library. The modules are mostly historic data formats (e.g. Commodore and SUN file formats), APIs and operating systems that have been superseded a long time ago (e.g. ...",
+    "media": "2020-AgADerMxGyiOtVM.jpg",
+    "ocr": ""
+  },
+  {
+    "id": 2021,
+    "text": "",
+    "media": "2021-AgADnsAxG1rC4VU.jpg",
+    "ocr": "https://peps.python.org/pep-05 ...\n从标准图书馆中拆卸出老化的电池\n5:20 AM"
   }
 ]
