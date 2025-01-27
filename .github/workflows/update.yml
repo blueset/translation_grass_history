@@ -37,7 +37,7 @@ jobs:
           SESSION_STRING: ${{ secrets.SESSION_STRING }}
           SUBSCRIPTION_KEY: ${{ secrets.SUBSCRIPTION_KEY }}
           ENDPOINT: ${{ secrets.ENDPOINT }}
-        run: python ptelegram_dump_img_channel.py
+        run: python telegram_dump_img_channel.py
       
       # - name: Generate html from data
       #   if: "${{ steps.download.outputs.messagesAdded != 0 }}"
