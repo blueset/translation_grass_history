@@ -37,12 +37,12 @@ jobs:
           SESSION_STRING: ${{ secrets.SESSION_STRING }}
           SUBSCRIPTION_KEY: ${{ secrets.SUBSCRIPTION_KEY }}
           ENDPOINT: ${{ secrets.ENDPOINT }}
-        run: python telegram_dump_img_channel.py
+        run: python ptelegram_dump_img_channel.py
       
-      - name: Generate html from data
-        if: "${{ steps.download.outputs.messagesAdded != 0 }}"
-        run: python render_data.py
-      
+      # - name: Generate html from data
+      #   if: "${{ steps.download.outputs.messagesAdded != 0 }}"
+      #   run: python render_data.py
+
       - name: Add & Commit changes
         if: "${{ steps.download.outputs.messagesAdded != 0 }}"
         uses: EndBug/add-and-commit@v5.2.0
@@ -53,4 +53,30 @@ jobs:
           message: "Update messages" # optional
       
           
-          
+      - name: Setup Node.js
+        if: "${{ steps.download.outputs.messagesAdded != 0 }}"
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        if: "${{ steps.download.outputs.messagesAdded != 0 }}"
+        run: npm install
+
+      - name: Build
+        if: "${{ steps.download.outputs.messagesAdded != 0 }}"
+        run: npm run build
+
+      - name: Copy static assets
+        if: "${{ steps.download.outputs.messagesAdded != 0 }}"
+        run: |
+          cp messages.json dist/
+          cp -r images dist/
+
+      - name: Deploy to GitHub Pages
+        if: "${{ steps.download.outputs.messagesAdded != 0 }}"
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
