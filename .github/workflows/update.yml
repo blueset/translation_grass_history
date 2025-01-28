@@ -71,6 +71,7 @@ jobs:
         if: "${{ steps.download.outputs.messagesAdded != 0 }}"
         run: |
           cp messages.json dist/
+          cp fuse-index.json dist/
           cp -r images dist/
 
       - name: Deploy to GitHub Pages

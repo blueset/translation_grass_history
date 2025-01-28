@@ -1,27 +1,51 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import Fuse from "fuse.js";
+import Fuse, { FuseIndex, FuseResultMatch } from "fuse.js";
 import { Input } from "@/components/ui/input";
 import { Card, CardDescription } from "./components/ui/card";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Mark from "mark.js";
 
-const highlightText = (text: string, searchTerm: string) => {
-  if (!searchTerm) return text;
-  const regex = new RegExp(`(${searchTerm})`, "gi");
-  return text.replace(
-    regex,
-    '<mark class="bg-yellow-300 text-primary-foreground rounded-sm px-1">$1</mark>'
-  );
+const highlightText = async (text: string, matches?: FuseResultMatch[]) => {
+  if (!matches?.length) return text;
+  const node = document.createElement("div");
+  node.innerHTML = text;
+  const mark = new Mark(node);
+  await new Promise((resolve) => 
+  mark.markRanges(
+    matches.map(match => match.indices.map(([start, end]) => ({ start, length: end - start + 1 }))).flat(),
+    {
+      className: "bg-yellow-300 text-primary-foreground rounded-sm px-1",
+      done: resolve
+    },
+  ));
+  return node.innerHTML;
 };
 
-const highlightTextNode = (text: string, searchTerm: string) => {
-  if (!searchTerm) return text;
-  const regex = new RegExp(`(${searchTerm})`, "gi");
-  return text.split(regex).map((part, index) =>
-    index % 2 === 0 ? part : <mark key={index} className="bg-yellow-300 text-primary-foreground rounded-sm px-1">{part}</mark>
-  );
-}
+const highlightTextNode = (text: string, matches?: FuseResultMatch[]) => {
+  if (!matches?.length) return text;
+  const parts = [];
+  let lastIndex = 0;
+  matches.forEach((match) => {
+    match.indices.forEach(([start, end]) => {
+      if (start > lastIndex) {
+        parts.push(text.slice(lastIndex, start));
+      }
+      parts.push(
+        <mark className="bg-yellow-300 text-primary-foreground rounded-sm px-1" key={start}>{text.slice(
+          start,
+          end + 1
+        )}</mark>
+      );
+      lastIndex = end + 1;
+    });
+  });
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts;
+};
 
 interface Message {
   id: number;
@@ -35,12 +59,19 @@ function MessageItem({
   searchTerm,
   onImageClick,
 }: {
-  message: Message;
+  message: Message & { matches?: readonly FuseResultMatch[] };
   searchTerm: string;
   fuse: Fuse<Message>;
   ref?: React.Ref<HTMLDivElement>;
   onImageClick: (imagePath: string) => void;
 }) {
+  const [highlightedText, setHighlightedText] = useState<string>(message.text);
+  useEffect(() => {
+    (async () => {
+      setHighlightedText(await highlightText(message.text, message.matches?.filter((match) => match.key === "plainText")));
+    })();
+  }, [message]);
+  
   return (
     <Card
       className={`p-6 border-b border-border transition-colors overflow-x-hidden mb-2 mr-2`}
@@ -54,37 +85,33 @@ function MessageItem({
               className="w-full md:w-48 h-48 object-cover rounded-lg shadow-md cursor-pointer"
               loading="lazy"
               decoding="async"
-              fetchPriority="low"
               onClick={() => onImageClick(`/images/${message.media}`)}
             />
           </div>
         )}
         <div className="flex-grow min-w-0">
-            <CardDescription>
-              <a
-                href={`https://t.me/TranslationGrass/${message.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" hover:underline "
-              >
-                #{message.id}
-              </a>
-            </CardDescription>
+          <CardDescription>
+            <a
+              href={`https://t.me/TranslationGrass/${message.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" hover:underline "
+            >
+              #{message.id}
+            </a>
+          </CardDescription>
           {message.text && (
             <div
               className="prose prose-sm dark:prose-invert max-w-none mb-3 whitespace-pre-wrap"
               dangerouslySetInnerHTML={{
-                __html: highlightText(message.text, searchTerm),
+                __html: highlightedText,
               }}
             />
           )}
           {message.ocr && (
             <div className="text-muted-foreground text-xs border-t border-border pt-3 mt-3">
-              <div className="text-muted-foreground/80 mb-1">
-                OCR Text:
-              </div>
-              <div
-              >{ highlightTextNode(message.ocr, searchTerm)}</div>
+              <div className="text-muted-foreground/80 mb-1">OCR Text:</div>
+              <div>{highlightTextNode(message.ocr, message.matches?.filter((match) => match.key === 'ocr'))}</div>
             </div>
           )}
         </div>
@@ -107,38 +134,48 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("/messages.json")
-      .then((res) => res.json())
-      .then((data) => {
-        // Filter out messages with no content and sort by id in descending order
+    (async () => {
+      try {
+        const response = await fetch("/messages.json");
+        const data = await response.json();
         const filteredMessages = data
           .filter((msg: Message) => msg.text || msg.media || msg.ocr)
           .sort((a: Message, b: Message) => b.id - a.id);
         setMessages(filteredMessages);
         setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error loading messages:", error);
         setLoading(false);
-      });
+      }
+    })();
   }, []);
 
   const fuse = useMemo(
     () =>
-      new Fuse(messages, {
-        keys: ["text", "media", "ocr"],
-        includeScore: true,
-        threshold: 0.3,
-        ignoreLocation: true,
-        useExtendedSearch: true,
-      }),
+      new Fuse(
+        messages,
+        {
+          keys: ["plainText", "media", "ocr"],
+          includeScore: true,
+          threshold: 0.3,
+          ignoreLocation: true,
+          useExtendedSearch: true,
+          includeMatches: true,
+        }
+      ),
     [messages]
   );
 
   const filteredMessages = useMemo(() => {
     if (!searchTerm) return messages;
-    return fuse.search(searchTerm).map((result) => result.item);
+    return fuse
+      .search(searchTerm)
+      .map((result): Message & { matches?: readonly FuseResultMatch[] } => ({
+        ...result.item,
+        matches: result.matches,
+      }));
   }, [messages, searchTerm, fuse]);
+  
 
   const rowVirtualizer = useVirtualizer<HTMLDivElement, HTMLDivElement>({
     count: filteredMessages.length,
