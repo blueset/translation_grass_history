@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import Fuse, { FuseIndex, FuseResultMatch } from "fuse.js";
+import Fuse, { FuseResultMatch } from "fuse.js";
 import { Input } from "@/components/ui/input";
 import { Card, CardDescription } from "./components/ui/card";
 import Lightbox from "yet-another-react-lightbox";
@@ -56,7 +56,6 @@ interface Message {
 
 function MessageItem({
   message,
-  searchTerm,
   onImageClick,
 }: {
   message: Message & { matches?: readonly FuseResultMatch[] };
