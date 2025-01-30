@@ -6,20 +6,30 @@ import { Card, CardDescription } from "./components/ui/card";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Mark from "mark.js";
+import { Button } from "./components/ui/button";
+import { CircleHelpIcon } from "lucide-react";
 
 const highlightText = async (text: string, matches?: FuseResultMatch[]) => {
   if (!matches?.length) return text;
   const node = document.createElement("div");
   node.innerHTML = text;
   const mark = new Mark(node);
-  await new Promise((resolve) => 
-  mark.markRanges(
-    matches.map(match => match.indices.map(([start, end]) => ({ start, length: end - start + 1 }))).flat(),
-    {
-      className: "bg-yellow-300 text-primary-foreground rounded-sm px-1",
-      done: resolve
-    },
-  ));
+  await new Promise((resolve) =>
+    mark.markRanges(
+      matches
+        .map((match) =>
+          match.indices.map(([start, end]) => ({
+            start,
+            length: end - start + 1,
+          }))
+        )
+        .flat(),
+      {
+        className: "bg-yellow-300 text-primary-foreground rounded-sm px-1",
+        done: resolve,
+      }
+    )
+  );
   return node.innerHTML;
 };
 
@@ -33,10 +43,12 @@ const highlightTextNode = (text: string, matches?: FuseResultMatch[]) => {
         parts.push(text.slice(lastIndex, start));
       }
       parts.push(
-        <mark className="bg-yellow-300 text-primary-foreground rounded-sm px-1" key={start}>{text.slice(
-          start,
-          end + 1
-        )}</mark>
+        <mark
+          className="bg-yellow-300 text-primary-foreground rounded-sm px-1"
+          key={start}
+        >
+          {text.slice(start, end + 1)}
+        </mark>
       );
       lastIndex = end + 1;
     });
@@ -54,20 +66,28 @@ interface Message {
   ocr?: string;
 }
 
-const MessageItem = forwardRef<HTMLDivElement, {
-  message: Message & { matches?: readonly FuseResultMatch[] };
-  searchTerm: string;
-  fuse: Fuse<Message>;
-  index: number;
-  onImageClick: (imagePath: string) => void;
-}>(({ message, onImageClick, index }, ref) => {
+const MessageItem = forwardRef<
+  HTMLDivElement,
+  {
+    message: Message & { matches?: readonly FuseResultMatch[] };
+    searchTerm: string;
+    fuse: Fuse<Message>;
+    index: number;
+    onImageClick: (imagePath: string) => void;
+  }
+>(({ message, onImageClick, index }, ref) => {
   const [highlightedText, setHighlightedText] = useState<string>(message.text);
   useEffect(() => {
     (async () => {
-      setHighlightedText(await highlightText(message.text, message.matches?.filter((match) => match.key === "plainText")));
+      setHighlightedText(
+        await highlightText(
+          message.text,
+          message.matches?.filter((match) => match.key === "plainText")
+        )
+      );
     })();
   }, [message]);
-  
+
   return (
     <Card
       className={`p-6 border-b border-border transition-colors overflow-x-hidden mb-2 mr-2`}
@@ -109,7 +129,12 @@ const MessageItem = forwardRef<HTMLDivElement, {
           {message.ocr && (
             <div className="text-muted-foreground text-xs border-t border-border pt-3 mt-3">
               <div className="text-muted-foreground/80 mb-1">OCR Text:</div>
-              <div>{highlightTextNode(message.ocr, message.matches?.filter((match) => match.key === 'ocr'))}</div>
+              <div>
+                {highlightTextNode(
+                  message.ocr,
+                  message.matches?.filter((match) => match.key === "ocr")
+                )}
+              </div>
             </div>
           )}
         </div>
@@ -150,17 +175,14 @@ function App() {
 
   const fuse = useMemo(
     () =>
-      new Fuse(
-        messages,
-        {
-          keys: ["plainText", "media", "ocr"],
-          includeScore: true,
-          threshold: 0.3,
-          ignoreLocation: true,
-          useExtendedSearch: true,
-          includeMatches: true,
-        }
-      ),
+      new Fuse(messages, {
+        keys: ["plainText", "media", "ocr"],
+        includeScore: true,
+        threshold: 0.3,
+        ignoreLocation: true,
+        useExtendedSearch: true,
+        includeMatches: true,
+      }),
     [messages]
   );
 
@@ -203,13 +225,24 @@ function App() {
   return (
     <div className="h-screen bg-background">
       <div className="max-w-3xl mx-auto flex flex-col h-full gap-2 pt-2">
-        <div className="z-10">
+        <div className="z-10 flex flex-row gap-2">
           <Input
             type="search"
             placeholder="Search messages…"
+            className="flex-grow w-0"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <Button asChild variant="outline" size="icon">
+            <a
+              href="https://www.fusejs.io/examples.html#extended-search"
+              target="_blank"
+              rel="noopener"
+              title="Advanced search"
+            >
+              <CircleHelpIcon />
+            </a>
+          </Button>
         </div>
 
         <div ref={parentRef} className="overflow-y-scroll h-0 flex-grow">
