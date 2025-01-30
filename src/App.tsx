@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef, forwardRef } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import Fuse, { FuseResultMatch } from "fuse.js";
 import { Input } from "@/components/ui/input";
@@ -54,16 +54,13 @@ interface Message {
   ocr?: string;
 }
 
-function MessageItem({
-  message,
-  onImageClick,
-}: {
+const MessageItem = forwardRef<HTMLDivElement, {
   message: Message & { matches?: readonly FuseResultMatch[] };
   searchTerm: string;
   fuse: Fuse<Message>;
-  ref?: React.Ref<HTMLDivElement>;
+  index: number;
   onImageClick: (imagePath: string) => void;
-}) {
+}>(({ message, onImageClick, index }, ref) => {
   const [highlightedText, setHighlightedText] = useState<string>(message.text);
   useEffect(() => {
     (async () => {
@@ -74,6 +71,8 @@ function MessageItem({
   return (
     <Card
       className={`p-6 border-b border-border transition-colors overflow-x-hidden mb-2 mr-2`}
+      ref={ref}
+      data-index={index}
     >
       <div className="flex flex-col md:flex-row gap-6">
         {message.media && (
@@ -117,7 +116,7 @@ function MessageItem({
       </div>
     </Card>
   );
-}
+});
 
 function App() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -174,12 +173,20 @@ function App() {
         matches: result.matches,
       }));
   }, [messages, searchTerm, fuse]);
-  
+
+  // const estimatedSizesRef = useRef([] as number[]);
 
   const rowVirtualizer = useVirtualizer<HTMLDivElement, HTMLDivElement>({
     count: filteredMessages.length,
     getScrollElement: () => parentRef.current,
     estimateSize: () => 200,
+    // estimateSize: (idx) => estimatedSizesRef.current[idx] || 200,
+    // measureElement: (element, _entry, _instance) => {
+    //   const height = element.getBoundingClientRect().height;
+    //   estimatedSizesRef.current[parseInt(element.dataset.index ?? "")] = height;
+    //   console.log("Measured height:", height, "for element:", element);
+    //   return height;
+    // },
     overscan: 5,
   });
 
@@ -229,6 +236,8 @@ function App() {
                   searchTerm={searchTerm}
                   fuse={fuse}
                   onImageClick={handleImageClick}
+                  index={virtualRow.index}
+                  ref={rowVirtualizer.measureElement}
                 />
               ))}
             </div>
