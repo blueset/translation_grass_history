@@ -79,12 +79,12 @@ function MessageItem({
         {message.media && (
           <div className="flex-shrink-0">
             <img
-              src={`/images/${message.media}`}
+              src={`./images/${message.media}`}
               alt={message.ocr || message.text || "Media"}
               className="w-full md:w-48 h-48 object-cover rounded-lg shadow-md cursor-pointer"
               loading="lazy"
               decoding="async"
-              onClick={() => onImageClick(`/images/${message.media}`)}
+              onClick={() => onImageClick(`./images/${message.media}`)}
             />
           </div>
         )}
@@ -135,7 +135,7 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await fetch("/messages.json");
+        const response = await fetch("./messages.json");
         const data = await response.json();
         const filteredMessages = data
           .filter((msg: Message) => msg.text || msg.media || msg.ocr)
