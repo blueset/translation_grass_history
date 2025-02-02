@@ -28,6 +28,8 @@ on:
 permissions:
   id-token: write
   pages: write
+  contents: write
+  statuses: write
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
