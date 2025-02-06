@@ -13591,5 +13591,11 @@
     "text": "【广告】\n最近开了一个小项目：<a href=\"https://i18nfails.1a23.studio/\">i18n fails</a>\n不一定生草，但不只是翻译。一个收集软件界面中各种出问题的国际化、本地化和翻译的小站点。\n\nhttps://i18nfails.1a23.studio\ni18n fails\nA collection of poorly carried out internationalization (i18n), localization (l10n), and translation of software user interfaces.",
     "media": "2105-AgADaLcxG0noBFE.jpg",
     "ocr": "i18n fails\n1A23\nStudio"
+  },
+  {
+    "id": 2106,
+    "text": "Windows?\nhttps://github.com/linuxmint/warpinator/blob/master/po/zh_CN.po#L112",
+    "media": "2106-AgADvsUxGyWhGFE.jpg",
+    "ocr": "Warpinator\nv\n×\n通过网络分享文件\n未发现其他主机。\n可能的解决办法:\n· 请确认您的网络已连接。\n请检查防火墙设定。端口号是可以更改的。请打开设置查询更多细节。\nWarpinator是否已在本网络的其他电脑运行?如果是,请确保它们设置了相同的的\n群组代码。\n· Warpinator 还在这些平台可用: 安卓\n窗口\n窗口"
   }
 ]
