@@ -5,35 +5,47 @@ import { Input } from "@/components/ui/input";
 import { Card, CardDescription } from "./components/ui/card";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import Mark from "mark.js";
 import { Button } from "./components/ui/button";
 import { CircleHelpIcon } from "lucide-react";
+import { useTextHighlight, supportsHighlightAPI } from "./lib/utils";
 
-const highlightText = async (text: string, matches?: FuseResultMatch[]) => {
-  if (!matches?.length) return text;
-  const node = document.createElement("div");
-  node.innerHTML = text;
-  const mark = new Mark(node);
-  await new Promise((resolve) =>
-    mark.markRanges(
-      matches
-        .map((match) =>
-          match.indices.map(([start, end]) => ({
-            start,
-            length: end - start + 1,
-          }))
-        )
-        .flat(),
-      {
-        className: "bg-yellow-300 text-primary-foreground rounded-sm px-1",
-        done: resolve,
-      }
+// Convert FuseResultMatch to the format our highlight utility expects
+const convertMatchesToHighlights = (matches?: FuseResultMatch[]) => {
+  if (!matches?.length) return [];
+  
+  return matches
+    .map((match) =>
+      match.indices.map(([start, end]) => ({
+        start,
+        end,
+      }))
     )
-  );
-  return node.innerHTML;
+    .flat();
 };
 
-const highlightTextNode = (text: string, matches?: FuseResultMatch[]) => {
+// Fallback highlighting for browsers that don't support CSS Custom Highlight API
+const highlightTextFallback = (text: string, matches?: FuseResultMatch[]) => {
+  if (!matches?.length) return text;
+  const parts = [];
+  let lastIndex = 0;
+  matches.forEach((match) => {
+    match.indices.forEach(([start, end]) => {
+      if (start > lastIndex) {
+        parts.push(text.slice(lastIndex, start));
+      }
+      parts.push(
+        `<mark class="bg-yellow-300 text-primary-foreground rounded-sm px-1">${text.slice(start, end + 1)}</mark>`
+      );
+      lastIndex = end + 1;
+    });
+  });
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts.join('');
+};
+
+const highlightTextNodeFallback = (text: string, matches?: FuseResultMatch[]) => {
   if (!matches?.length) return text;
   const parts = [];
   let lastIndex = 0;
@@ -76,17 +88,30 @@ const MessageItem = forwardRef<
     onImageClick: (imagePath: string) => void;
   }
 >(({ message, onImageClick, index }, ref) => {
-  const [highlightedText, setHighlightedText] = useState<string>(message.text);
+  const textRef = useRef<HTMLDivElement>(null);
+  const ocrRef = useRef<HTMLDivElement>(null);
+  const [fallbackHighlightedText, setFallbackHighlightedText] = useState<string>(message.text);
+
+  // Get matches for main text and OCR
+  const textMatches = message.matches?.filter((match) => match.key === "plainText");
+  const ocrMatches = message.matches?.filter((match) => match.key === "ocr");
+
+  // Convert matches to highlight format
+  const textHighlights = convertMatchesToHighlights(textMatches);
+  const ocrHighlights = convertMatchesToHighlights(ocrMatches);
+
+  // Use CSS Custom Highlight API for supported browsers
+  useTextHighlight(textRef, textHighlights, `search-match-text-${index}`);
+  useTextHighlight(ocrRef, ocrHighlights, `search-match-ocr-${index}`);
+
+  // Fallback for browsers that don't support the API
   useEffect(() => {
-    (async () => {
-      setHighlightedText(
-        await highlightText(
-          message.text,
-          message.matches?.filter((match) => match.key === "plainText")
-        )
-      );
-    })();
-  }, [message]);
+    if (!supportsHighlightAPI()) {
+      setFallbackHighlightedText(highlightTextFallback(message.text, textMatches));
+    } else {
+      setFallbackHighlightedText(message.text);
+    }
+  }, [message.text, textMatches]);
 
   return (
     <Card
@@ -120,20 +145,23 @@ const MessageItem = forwardRef<
           </CardDescription>
           {message.text && (
             <div
+              ref={textRef}
               className="prose prose-sm dark:prose-invert max-w-none mb-3 whitespace-pre-wrap"
-              dangerouslySetInnerHTML={{
-                __html: highlightedText,
-              }}
+              dangerouslySetInnerHTML={
+                supportsHighlightAPI()
+                  ? { __html: message.text }
+                  : { __html: fallbackHighlightedText }
+              }
             />
           )}
           {message.ocr && (
             <div className="text-muted-foreground text-xs border-t border-border pt-3 mt-3">
               <div className="text-muted-foreground/80 mb-1">OCR Text:</div>
-              <div>
-                {highlightTextNode(
-                  message.ocr,
-                  message.matches?.filter((match) => match.key === "ocr")
-                )}
+              <div ref={ocrRef}>
+                {supportsHighlightAPI()
+                  ? message.ocr
+                  : highlightTextNodeFallback(message.ocr, ocrMatches)
+                }
               </div>
             </div>
           )}
