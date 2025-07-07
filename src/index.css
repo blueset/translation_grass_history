@@ -99,3 +99,12 @@
     /* @apply bg-background text-foreground; */
   }
 }
+
+/* CSS Custom Highlight API styles */
+::highlight(search-match) {
+  background-color: rgb(253 224 71); /* bg-yellow-300 */
+  color: hsl(var(--primary-foreground));
+  border-radius: 0.125rem; /* rounded-sm */
+  padding-left: 0.25rem; /* px-1 */
+  padding-right: 0.25rem; /* px-1 */
+}
