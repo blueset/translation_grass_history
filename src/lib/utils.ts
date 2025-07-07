@@ -18,53 +18,76 @@ export const supportsHighlightAPI = () => {
   return typeof CSS !== 'undefined' && 'highlights' in CSS;
 }
 
-export const createSimpleTextHighlight = (
-  text: string,
-  matches: Array<{ start: number; end: number }>,
-  highlightName: string = 'search-match'
-) => {
-  if (!supportsHighlightAPI() || !matches.length) {
-    return null;
+// Global highlight manager to handle ranges from multiple components
+interface HighlightRange {
+  componentId: string;
+  ranges: Range[];
+}
+
+class HighlightManager {
+  private registeredRanges = new Map<string, HighlightRange[]>();
+  private highlightName = 'search-match';
+
+  register(componentId: string, ranges: Range[]) {
+    if (!supportsHighlightAPI()) return;
+
+    // Remove existing ranges for this component
+    this.unregister(componentId);
+
+    // Add new ranges for this component
+    if (ranges.length > 0) {
+      const existingRanges = this.registeredRanges.get(this.highlightName) || [];
+      const newRanges = [...existingRanges, { componentId, ranges }];
+      this.registeredRanges.set(this.highlightName, newRanges);
+    }
+
+    // Update the global highlight
+    this.updateHighlight();
   }
 
-  // Create a temporary div to hold our text
-  const tempDiv = document.createElement('div');
-  tempDiv.textContent = text;
-  document.body.appendChild(tempDiv);
+  unregister(componentId: string) {
+    if (!supportsHighlightAPI()) return;
 
-  try {
-    const ranges: Range[] = [];
-
-    // Get the text node
-    const textNode = tempDiv.firstChild;
-    if (!textNode || textNode.nodeType !== Node.TEXT_NODE) {
-      return null;
+    const existingRanges = this.registeredRanges.get(this.highlightName) || [];
+    const filteredRanges = existingRanges.filter(item => item.componentId !== componentId);
+    
+    if (filteredRanges.length > 0) {
+      this.registeredRanges.set(this.highlightName, filteredRanges);
+    } else {
+      this.registeredRanges.delete(this.highlightName);
     }
 
-    // Create ranges for each match
-    matches.forEach(({ start, end }) => {
-      const range = document.createRange();
-      range.setStart(textNode, start);
-      range.setEnd(textNode, end + 1); // end is inclusive in match, exclusive in range
-      ranges.push(range);
-    });
+    // Update the global highlight
+    this.updateHighlight();
+  }
 
-    if (ranges.length > 0) {
-      const highlight = new Highlight(...ranges);
-      CSS.highlights.set(highlightName, highlight);
-      return highlightName;
+  private updateHighlight() {
+    const allRanges = this.registeredRanges.get(this.highlightName) || [];
+    const flatRanges = allRanges.flatMap(item => item.ranges);
+
+    if (flatRanges.length > 0) {
+      const highlight = new Highlight(...flatRanges);
+      CSS.highlights.set(this.highlightName, highlight);
+    } else {
+      CSS.highlights.delete(this.highlightName);
     }
+  }
 
-    return null;
-  } finally {
-    document.body.removeChild(tempDiv);
+  clear() {
+    if (supportsHighlightAPI()) {
+      CSS.highlights.delete(this.highlightName);
+      this.registeredRanges.clear();
+    }
   }
 }
+
+// Global instance of the highlight manager
+const globalHighlightManager = new HighlightManager();
 
 export const createTextHighlight = (
   element: Element,
   matches: Array<{ start: number; end: number }>,
-  highlightName: string = 'search-match'
+  componentId: string
 ) => {
   if (!supportsHighlightAPI() || !matches.length) {
     return null;
@@ -125,25 +148,26 @@ export const createTextHighlight = (
   });
 
   if (ranges.length > 0) {
-    const highlight = new Highlight(...ranges);
-    CSS.highlights.set(highlightName, highlight);
-    return highlightName;
+    globalHighlightManager.register(componentId, ranges);
+    return componentId;
   }
 
   return null;
 }
 
-export const clearHighlight = (highlightName: string = 'search-match') => {
-  if (supportsHighlightAPI()) {
-    CSS.highlights.delete(highlightName);
-  }
+export const clearHighlight = (componentId: string) => {
+  globalHighlightManager.unregister(componentId);
+}
+
+export const clearAllHighlights = () => {
+  globalHighlightManager.clear();
 }
 
 // React hook for managing highlights
 export const useTextHighlight = (
   elementRef: React.RefObject<Element>,
   matches: Array<{ start: number; end: number }> | undefined,
-  highlightName: string = 'search-match'
+  componentId: string
 ) => {
   const activeHighlightRef = useRef<string | null>(null);
 
@@ -156,7 +180,7 @@ export const useTextHighlight = (
 
     // Apply new highlight if we have matches and the element is available
     if (elementRef.current && matches && matches.length > 0) {
-      const highlightId = createTextHighlight(elementRef.current, matches, highlightName);
+      const highlightId = createTextHighlight(elementRef.current, matches, componentId);
       activeHighlightRef.current = highlightId;
     }
 
@@ -167,7 +191,7 @@ export const useTextHighlight = (
         activeHighlightRef.current = null;
       }
     };
-  }, [elementRef, matches, highlightName]);
+  }, [elementRef, matches, componentId]);
 
   // Also cleanup on unmount
   useEffect(() => {

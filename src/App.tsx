@@ -101,8 +101,8 @@ const MessageItem = forwardRef<
   const ocrHighlights = convertMatchesToHighlights(ocrMatches);
 
   // Use CSS Custom Highlight API for supported browsers
-  useTextHighlight(textRef, textHighlights, `search-match-text-${index}`);
-  useTextHighlight(ocrRef, ocrHighlights, `search-match-ocr-${index}`);
+  useTextHighlight(textRef, textHighlights, `message-${message.id}-text`);
+  useTextHighlight(ocrRef, ocrHighlights, `message-${message.id}-ocr`);
 
   // Fallback for browsers that don't support the API
   useEffect(() => {
