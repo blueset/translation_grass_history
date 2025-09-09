@@ -15120,5 +15120,17 @@
     "text": "OpenStreetMap 是 打开 数据\n#投稿",
     "media": "2339-AgADCcIxG419gFQ.jpg",
     "ocr": "OpenStreetMapiFF]\nOpenStreetMap 是 打开数据,由 OpenStreetMap 基金会 (OSMF)根据 开放数据共享开放数据库许可协议(ODbL)许可协议发布。简而言之:\n您可以自由地复制、分发、传输和改编我们的数据,只要您注明OpenStreetMap及其贡献者。如果您修改或基于我们的数据进行创作,您只能在相同\n的许可协议下分发结果。完整的法律代码可在开放数据共同体(Open Data Commons)获取。解释了您的权利和责任。\n我们的文档根据 知识共享-署名-相同方式共享许可协议2.0许可协议(CC BY-SA 2.0)获得许可。\n请参阅 OSMF 许可页面 了解有关使用我们数据的更多信息。"
+  },
+  {
+    "id": 2340,
+    "text": "「OTP 显卡」\nhttps://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/id_credentials_mfa.html#hardware-totp-token-for-iam-users",
+    "media": "2340-AgADRdExG4k2-FU.jpg",
+    "ocr": "Hardware TOTP tokens\nA hardware device generates a six-digit numeric code based on the time-based one-time password\n(TOTP) algorithm[^. The user must type a valid code from the device on a second webpage during sign-\nin.\nThese tokens are used exclusively with AWS accounts. You can only use tokens that have their unique\ntoken seeds shared securely with AWS. Token seeds are secret keys generated at the time of token\nproduction. Tokens purchased from other sources will not function with IAM. To ensure compatibility,\nyou must purchase your hardware MFA device from one of the following links: OTP token LE or OTP\ndisplay card [2."
+  },
+  {
+    "id": 2341,
+    "text": "",
+    "media": "2341-AgADRtExG4k2-FU.jpg",
+    "ocr": "硬件 TOTP 令牌\n硬件设备以基于时间的一次性密码(TOTP)算法已为基础生成六位数字代码。在登录时,用户必须在另一\n个网页上键入来自该设备的有效代码。\n这些令牌仅与 AWS 账户 一起使用。您只能使用具有与 AWS 安全共享的唯一令牌种子的令牌。令牌种子是\n在制作令牌时生成的私有密钥。从其他来源购买的令牌不能用于 IAM。为确保兼容性,您必须通过以下链接\n之一购买硬件 MFA 设备:OTP 令牌口或 OTP 显卡巴。"
   }
 ]
