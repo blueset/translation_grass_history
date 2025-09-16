@@ -15132,5 +15132,9 @@
     "text": "",
     "media": "2341-AgADRtExG4k2-FU.jpg",
     "ocr": "硬件 TOTP 令牌\n硬件设备以基于时间的一次性密码(TOTP)算法已为基础生成六位数字代码。在登录时,用户必须在另一\n个网页上键入来自该设备的有效代码。\n这些令牌仅与 AWS 账户 一起使用。您只能使用具有与 AWS 安全共享的唯一令牌种子的令牌。令牌种子是\n在制作令牌时生成的私有密钥。从其他来源购买的令牌不能用于 IAM。为确保兼容性,您必须通过以下链接\n之一购买硬件 MFA 设备:OTP 令牌口或 OTP 显卡巴。"
+  },
+  {
+    "id": 2342,
+    "text": "#投稿\nhttps://t.me/hacker_news_zh/14763\nAI 翻译笑话：<spoiler>杀猪盘</spoiler>\nTelegram\nHacker News 摘要\n猪肉砸碎骗局的定性分析\n原文：https://arxiv.org/abs/2503.20821\n阅读时间：3 分钟\n分数：194"
   }
 ]
