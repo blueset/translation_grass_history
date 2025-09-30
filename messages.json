@@ -15154,5 +15154,13 @@
     "text": "草",
     "media": "2345-AgADxskxGyjUiFQ.jpg",
     "ocr": "3F 成长时刻\n儿童亲子 生活配套\nChild parent child Life matching\n↑\n↓"
+  },
+  {
+    "id": 2346,
+    "text": "<pre>msgid &quot;Make live change persistent&quot;\nmsgstr &quot;让生活变革持续下去&quot;</pre>"
+  },
+  {
+    "id": 2347,
+    "text": "<pre>msgid &quot;fish is running in private mode, history will not be persisted.&quot;\nmsgstr &quot;fish在私人模式中运行,历史不会持续下去.&quot;</pre>"
   }
 ]
