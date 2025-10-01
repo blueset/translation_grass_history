@@ -15162,5 +15162,9 @@
   {
     "id": 2347,
     "text": "<pre>msgid &quot;fish is running in private mode, history will not be persisted.&quot;\nmsgstr &quot;fish在私人模式中运行,历史不会持续下去.&quot;</pre>"
+  },
+  {
+    "id": 2348,
+    "text": "Perplexity官方中文翻译"
   }
 ]
