@@ -15264,5 +15264,23 @@
     "text": "via @tech_Sky_09",
     "media": "2369-AgADAQxrG3g7MFY.jpg",
     "ocr": "禁止喧哗\nKEEP QUIET\n禁止吸烟\nKEEP SOMKING"
+  },
+  {
+    "id": 2370,
+    "text": "孩子们，Fedora也干了",
+    "media": "2370-AgADKwtrG3h7QVY.jpg",
+    "ocr": "密码\n0弱\n√ 必须至少包含6字符\n确认密码 *\nO 密码必须匹配"
+  },
+  {
+    "id": 2371,
+    "text": "",
+    "media": "2371-AgADLAtrG3h7QVY.jpg",
+    "ocr": "密码\n△ 媒介\n确认密码\n*\n必须至少包含6字符\nO 密码必须匹配"
+  },
+  {
+    "id": 2372,
+    "text": "",
+    "media": "2372-AgADLQtrG3h7QVY.jpg",
+    "ocr": "密码\n√强\n确认密码\n*\n***********\n√ 必须至少包含6字符\nO 密码必须匹配"
   }
 ]
