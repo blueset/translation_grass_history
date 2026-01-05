@@ -15330,5 +15330,15 @@
     "text": "",
     "media": "2382-AgADfwxrG2khyVY.jpg",
     "ocr": "strcasecmp\n(PHP 4, PHP 5, PHP 7, PHP 8)\nstrcasecmp - 二进制安全比较字符串(不区分大小写)\n说明\nstrcasecmp(string $string1, string $string2): int\n二进制安全比较字符串(不区分大小写)。比较不会注意区域;只有 ASCII 字母以不区分大小写的方式进行比较。"
+  },
+  {
+    "id": 2383,
+    "text": "「火灾」",
+    "media": "2383-AgADQgtrG4GI2FY.jpg",
+    "ocr": "Q. 正在搜索\nN\nE 火灾\n离开"
+  },
+  {
+    "id": 2384,
+    "text": "英文应该是 Fire，翻译过来是「开火」"
   }
 ]
